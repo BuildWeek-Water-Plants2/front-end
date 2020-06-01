@@ -114,7 +114,7 @@ export default function SearchAppBar() {
               </Link>
             </MenuItem>
             <MenuItem onClick={handleClose}>
-              <Link href="#" variant="body2">
+              <Link href="/UserProfile" variant="body2">
                 {"Profile"}
               </Link>
             </MenuItem>

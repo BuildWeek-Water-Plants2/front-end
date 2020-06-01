@@ -39,6 +39,7 @@ const UserProfile = () => {
   const [UpdateUserState, setUpdateUserState] = useState({
     username: "",
     phoneNumber: "",
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -121,7 +122,7 @@ const UserProfile = () => {
                 color="primary"
                 className={classes.submit}
               >
-                Sign up
+                Save Changes
               </Button>
               <Grid container>
                 <Link href="/Login" variant="body2">
@@ -133,7 +134,6 @@ const UserProfile = () => {
           <Box mt={8}></Box>
         </Container>
       </div>
-      ); }
     </div>
   );
 };
