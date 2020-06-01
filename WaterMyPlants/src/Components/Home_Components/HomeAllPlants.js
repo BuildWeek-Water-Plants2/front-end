@@ -62,6 +62,7 @@ const AllPlants = () => {
 
   const classes = useStyles();
   const [post, setPost] = useState([]);
+  const history = useHistory();
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
@@ -183,7 +184,11 @@ const AllPlants = () => {
         <br></br>
         <br></br>
         <label htmlFor="Add-Plant=Button" />
-        <Button variant="contained" color="primary">
+        <Button
+          onClick={() => history.push("./HomePlants")}
+          variant="contained"
+          color="primary"
+        >
           Next
         </Button>
       </form>

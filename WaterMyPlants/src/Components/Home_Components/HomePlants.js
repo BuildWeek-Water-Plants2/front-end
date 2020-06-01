@@ -10,7 +10,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const homePlants = () => {
+const HomePlants = () => {
   /* State management */
   const [plants, setPlants] = useState({
     name: "",
@@ -43,8 +43,8 @@ const homePlants = () => {
         {plants.map((item) => {
           return (
             <PlantsCard
-              key={item.nickname}
-              name={item.nickname}
+              key={item.name}
+              name={item.name}
               water={item.water}
               species={item.species}
             />
@@ -55,4 +55,4 @@ const homePlants = () => {
   );
 };
 
-export default homePlants;
+export default HomePlants;

@@ -12,8 +12,8 @@ import PlantCreation from "./Components/Plant_Components/PlantCreation";
 import Home from "./Components/Home_Components/Home";
 import HomeAllPlants from "./Components/Home_Components/HomeAllPlants";
 import SearchAppBar from "./Components/Nav_Components/Nav";
-import plantsCard from "./Components/Home_Components/PlantsCard";
-import homePlants from "./Components/Home_Components/HomePlants";
+import PlantsCard from "./Components/Home_Components/PlantsCard";
+import HomePlants from "./Components/Home_Components/HomePlants";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
               path="/HomeAllPlants"
               component={HomeAllPlants}
             />
-            <PrivateRoute exact path="/homePlants" component={homePlants} />
+            <PrivateRoute exact path="/HomePlants" component={HomePlants} />
             <PrivateRoute
               exact
               path="/PlantCreation"

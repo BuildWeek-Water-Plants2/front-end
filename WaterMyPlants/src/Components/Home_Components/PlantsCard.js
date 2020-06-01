@@ -13,7 +13,7 @@ const Card = styled.div`
     background-color: #235b2d;
   }
 `;
-const plantsCard = (props) => {
+const PlantsCard = (props) => {
   return (
     <Card>
       <h2>{props.name}</h2>
@@ -22,4 +22,4 @@ const plantsCard = (props) => {
     </Card>
   );
 };
-export default plantsCard;
+export default PlantsCard;
