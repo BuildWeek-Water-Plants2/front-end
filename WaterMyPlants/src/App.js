@@ -12,6 +12,7 @@ import PlantCreation from "./Components/Plant_Components/PlantCreation";
 import Home from "./Components/Home_Components/Home";
 import HomeAllPlants from "./Components/Home_Components/HomeAllPlants";
 import SearchAppBar from "./Components/Nav_Components/Nav";
+import userProfile from "./Components/Update-User/User";
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
               path="/PlantCreation"
               component={PlantCreation}
             />
+
+            <PrivateRoute exact path="/UserProfile" component={userProfile} />
           </Switch>
         </div>
       </Router>
