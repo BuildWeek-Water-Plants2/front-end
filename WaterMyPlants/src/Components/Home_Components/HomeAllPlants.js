@@ -12,12 +12,13 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import * as yup from "yup";
+import { useHistory } from "react-router-dom";
 
 /* Schema Build  */
 const formSchema = yup.object().shape({
   name: yup
     .string()
-    .min(4, "Must be 4 characters long")
+    .min(4, "min 4 characters ")
     .required("Plant Name Required"),
 
   maintenance: yup.string(),
@@ -60,16 +61,9 @@ const AllPlants = () => {
   });
 
   const classes = useStyles();
+  const [post, setPost] = useState([]);
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
-
-  /* Validation */
-
-  useEffect(() => {
-    formSchema.isValid(plantsState).then((valid) => {
-      setButtonDisabled(!valid);
-    });
-  }, [plantsState]);
 
   /* Event Handlers */
   const handleChange = (event) => {
@@ -101,11 +95,22 @@ const AllPlants = () => {
   const formSubmit = (e) => {
     e.preventDefualt();
     console.log("form Submitted");
-    axios()
+    axios
       .post("https://preston-plant.herokuapp.com/api/plants", plantsState)
-      .then((response) => console.log(response))
-      .catch((error) => console.log("Error", error));
+      .then((response) => {
+        setPost(response.data);
+        console.log("my data", response.data);
+      })
+      .catch((error) => console.log(error.response));
+
+    setPlantState({ ...plantsState, [e.target.name]: e.target.value });
   };
+
+  useEffect(() => {
+    formSchema.isValid(plantsState).then((valid) => {
+      setButtonDisabled(!valid);
+    });
+  }, [plantsState]);
 
   console.log(plantsState);
 
@@ -147,6 +152,7 @@ const AllPlants = () => {
           label="Your Plant's Name "
           onChange={handleChange}
         />
+        {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
         <br></br>
         <br></br>
         <label htmlFor="Plant-Care" />
@@ -177,11 +183,7 @@ const AllPlants = () => {
         <br></br>
         <br></br>
         <label htmlFor="Add-Plant=Button" />
-        <Button
-          onChange={(e) => handleChange(e)}
-          variant="contained"
-          color="primary"
-        >
+        <Button variant="contained" color="primary">
           Next
         </Button>
       </form>
