@@ -4,16 +4,17 @@ import Plants from "./Plants";
 
 const PlantCreation = (props) => {
 
-    const [plants, setPlant] = useState([
+    const [plants, setPlant] = useState(
         {
           id: Date.now(),
           plantName: " ",
           species: " ",
           care: " ",
-          happiness: " ",
-          discription: " "
+          description: " "
         }
-    ]);
+    );
+
+    /* console.log(plants) */
 
   const onChangeHandler = (event) => {
     setPlant({
@@ -22,21 +23,23 @@ const PlantCreation = (props) => {
     })
   }
 
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = (e) => {
     //To prevent page from reloading all of react content
-    event.preventDefault();
+    e.preventDefault();
     //Adding results of this PlantCreation as input into
-      console.log(props.loadPlants(plants))
     props.loadPlants(plants)
 
-    setPlant({plantName: "", species: "", care:"", happiness:"", description:"", id:Date.now()})
-
-  }
-
-  console.log(onChangeHandler)
+      /* setPlant({
+       *           plantName: "",
+       *           species: "",
+       *           care:"",
+       *           description:"",
+       *           id:Date.now()
+       * })} */
+}
 
   return (
-            <form onSubmit = {onSubmitHandler}>
+            <form onSubmit = {event => onSubmitHandler(event)}>
                     <div>
                         <label htmlFor="plantName">Plant Name:</label>
                         <input
@@ -45,7 +48,7 @@ const PlantCreation = (props) => {
                             name = "plantName"
                             placeholder = "Please Enter Your Plant Name:"
                             value = {plants.plantName}
-                            onChange ={onChangeHandler}
+                            onChange ={event => onChangeHandler(event)}
                         />
                     </div>
 
@@ -57,7 +60,7 @@ const PlantCreation = (props) => {
                             name = "species"
                             placeholder = "Select or create your plant species"
                             value = {plants.species}
-                            onChange ={onChangeHandler}
+                            onChange ={event => onChangeHandler(event)}
                         />
                     </div>
 
@@ -69,7 +72,7 @@ const PlantCreation = (props) => {
                             name = "care"
                             placeholder = " Please set the care level required: "
                             value = {plants.care}
-                            onChange ={onChangeHandler}
+                            onChange ={event => onChangeHandler(event)}
                         />
                     </div>
 
@@ -79,7 +82,7 @@ const PlantCreation = (props) => {
                             id="discription"
                             name="discription"
                             value={plants.discription}
-                            onChange ={onChangeHandler}
+                            onChange ={event => onChangeHandler(event)}
                         />
                     </div>
 

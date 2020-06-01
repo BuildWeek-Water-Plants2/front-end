@@ -12,7 +12,7 @@ const Plant = (props) => {
                 <h2>{props.newPlant.care}</h2>
                 <h2>{props.newPlant.happiness}</h2>
                 <h2>{props.newPlant.description}</h2>
-                </div> 
+             </div> 
         </div>
 
     )

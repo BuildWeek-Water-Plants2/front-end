@@ -1,0 +1,1 @@
+export const CREATE_PLANT = 'CREATE_PLANT'
