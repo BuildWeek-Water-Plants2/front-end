@@ -184,13 +184,10 @@ const AllPlants = () => {
         <br></br>
         <br></br>
         <label htmlFor="Add-Plant=Button" />
-        <Button
-          onClick={() => history.push("./HomePlants")}
-          variant="contained"
-          color="primary"
-        >
+        <Button variant="contained" color="primary">
           Next
         </Button>
+        <pre>{JSON.stringify(post, null, 2)}</pre>
       </form>
       <Plants />
     </div>
