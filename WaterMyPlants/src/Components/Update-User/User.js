@@ -60,7 +60,7 @@ const UserProfile = () => {
 
   return (
     <div>
-      <div className="Signin-form">
+      <div>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <div className={classes.paper}>
@@ -68,7 +68,7 @@ const UserProfile = () => {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5" color="inherit">
-              Sign up for water my plants!
+              Update Your Profile !!
             </Typography>
             <form className={classes.form} noValidate onSubmit={handleSubmit}>
               <TextField
@@ -95,7 +95,7 @@ const UserProfile = () => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                value={UpdateUserState.password}
+                value={UpdateUserState.phoneNumber}
                 onChange={handleChange}
                 color="inherit"
               />
